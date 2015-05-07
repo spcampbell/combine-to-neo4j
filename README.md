@@ -1,5 +1,5 @@
 # combine-to-neo4j
-Script and cypher statements to load cyber threat intelligence gathered by combine.py into neo4j
+Shell script and cypher statements to load cyber threat intelligence gathered by combine.py into neo4j
 
 combine.cql contains cypher statements that merges the data gathered into enriched.csv by combine.py. The file path to enriched.csv must be set on each statement in the file (7 statements). Use the neo4j cypher shell to load and run this file.
 
