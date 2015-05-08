@@ -20,15 +20,15 @@ echo "-------------------------------------" | tee -a output.log
 
 cd $COMBINEDIR
 
-echo "Starting combine.py" | tee -a output.log
+echo "***** Starting combine.py" | tee -a output.log
 ./venv/bin/python combine.py -t CSV -d -e
-echo "combine.py finished. Took $SECONDS seconds." | tee -a output.log
+echo "***** combine.py finished. Took $SECONDS seconds." | tee -a output.log
 
 cd $SCRIPTDIR
 
-echo "Starting Neo4j import." | tee -a output.log
+echo "***** Starting Neo4j import." | tee -a output.log
 $NEO4JDIR/bin/neo4j-shell -file combine.cql | tee -a output.log
-echo "Finished Neo4j import." | tee -a output.log
+echo "***** Finished Neo4j import." | tee -a output.log
 
 echo "-------------------------------------" | tee -a output.log
 echo "END TIME: `date +%y/%m/%d_%H:%M:%S`" | tee -a output.log
