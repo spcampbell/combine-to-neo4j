@@ -15,4 +15,4 @@ This has been run on Ubuntu 14.04. It has not been tested on other operating sys
 
 Example graphs:
 
-![Example1](/screenshots/)
+![Example1](/screenshots/example_graph1.PNG)
