@@ -12,3 +12,7 @@ To install combine.py: [Follow directions here](https://github.com/mlsecproject/
 To install neo4j: [Follow directions here](http://neo4j.com/developer/get-started/)
 
 This has been run on Ubuntu 14.04. It has not been tested on other operating systems. The cypher statements should transfer over easily with formatting changes to the file path.
+
+Example graphs:
+
+![Example1](/screenshots/)
