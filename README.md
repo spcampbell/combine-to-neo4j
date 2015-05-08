@@ -13,7 +13,7 @@ To install neo4j: [Follow directions here](http://neo4j.com/developer/get-starte
 
 I am running this on Ubuntu 14.04 as an hourly cron job. It has not been tested on other operating systems. The cypher statements should transfer over easily with formatting changes to the file path.
 
-# Performance
+### Performance
 How long it takes to run combine and import the data into Neo4j is highly variable on the machine and the configuration of Neo4j. My experience: in a VirtualBox VM with 4GB of RAM and 2 CPUs, running on a host with an i7 CPU and 8GB of RAM with 2.5GB Java heap size set in neo4j-wrapper.conf, it takes less 6-7 minutes to run both combine.py with the enriched paramter and then import the data. Roughly, just over 3 minutes for combine.py and just over 3 minutes for import. Note that the script logs times in output.log along with the output of the Neo4j shell script.
 
 Example graphs:
