@@ -16,3 +16,7 @@ This has been run on Ubuntu 14.04. It has not been tested on other operating sys
 Example graphs:
 
 ![Example1](/screenshots/example_graph1.PNG)
+
+![Example2](/screenshots/example_graph2.PNG)
+
+![Example3](/screenshots/example_graph3.PNG)
