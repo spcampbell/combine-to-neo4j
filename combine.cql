@@ -12,6 +12,7 @@
 
 // Create indexes
 CREATE INDEX ON :IP(ip);
+CREATE INDEX ON :DIRECTION(direction);
 CREATE INDEX ON :AS(asnumber);
 CREATE INDEX ON :Country(country);
 CREATE INDEX ON :OSINT_Source(OSINTsrc);
@@ -21,13 +22,23 @@ CREATE INDEX ON :Date_added(date);
 // Create nodes
 USING PERIODIC COMMIT 2000
 LOAD CSV WITH HEADERS FROM "file:///path/to/combine/enriched.csv" AS csvLine
-MERGE (ip:IP { ip: csvLine.entity, direction: csvLine.direction })
+// MERGE (ip:IP { ip: csvLine.entity, direction: csvLine.direction })
+MERGE (ip:IP { ip: csvLine.entity })
+MERGE (direction:DIRECTION { direction: csvLine.direction })
 MERGE (asname:AS{asname:csvLine.asname,asnumber:csvLine.asnumber})
 MERGE (country:Country{country:csvLine.country})
 MERGE (source:OSINT_Source{OSINTsrc:csvLine.source})
 MERGE (notes:Bad_activity{bad_activity:csvLine.notes})
 MERGE (date:Date_added{date:csvLine.date})
 RETURN count(DISTINCT ip),count(DISTINCT asname),count(DISTINCT country),count(DISTINCT source),count(DISTINCT notes),count(DISTINCT date);
+
+// CREATE IP to DIRECTION relationships
+USING PERIODIC COMMIT 2000
+LOAD CSV WITH HEADERS FROM "file:///path/to/combine/enriched.csv" AS csvLine
+MATCH (ip:IP {ip: csvLine.entity})
+MATCH (direction:DIRECTION {direction:csvLine.direction})
+CREATE UNIQUE (ip)-[do:DIRECTION_OF]->(direction)
+RETURN type(do),count(DISTINCT do);
 
 // Create IP to AS relationships
 USING PERIODIC COMMIT 2000
